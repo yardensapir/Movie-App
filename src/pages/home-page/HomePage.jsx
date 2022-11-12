@@ -54,10 +54,11 @@ const HomePage = () => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
   const getMovies = async (searchKey) => {
     const type = searchKey ? "search" : "discover";
+    const key = 'e5f0ca61887385464839f74378f25785'
     try {
       const {data} = await axios.get(`${API_URL}/${type}/movie`, {
         params: {
-          api_key: environments.REACT_APP_MOVIE_API_KEY,
+          api_key: key,
           query: searchKey,
         },
       });
