@@ -19,23 +19,20 @@ const MoviePage = () => {
   //Fetch Movie
 
   const getMovies = async (searchKey) => {
-    const key = "e5f0ca61887385464839f74378f25785";
-    try {
-      const { data } = await axios.get(`${API_URL}/${searchKey}`, {
-        params: {
-          api_key: key,
-          query: searchKey,
-          append_to_response: "videos",
-        },
-      });
-      const trailerKey = await data.videos.results.find((element) =>
-        element.name.includes("Trailer")
-      );
-      trailerKey
-        ? setTrailerKey(trailerKey.key)
-        : setTrailerKey(data.videos.results[0].key);
-      setMovie(data);
-    } catch (err) {}
+    const { data } = await axios.get(`${API_URL}/${searchKey}`, {
+      params: {
+        api_key: environments.REACT_APP_MOVIE_API_KEY,
+        query: searchKey,
+        append_to_response: "videos",
+      },
+    });
+    const trailerKey = await data.videos.results.find((element) =>
+      element.name.includes("Trailer")
+    );
+    trailerKey
+      ? setTrailerKey(trailerKey.key)
+      : setTrailerKey(data.videos.results[0].key);
+    setMovie(data);
   };
 
   useEffect(() => {

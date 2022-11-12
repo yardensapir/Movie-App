@@ -54,24 +54,21 @@ const HomePage = () => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
   const getMovies = async (searchKey) => {
     const type = searchKey ? "search" : "discover";
-    const key = 'e5f0ca61887385464839f74378f25785'
-    try {
-      const {data} = await axios.get(`${API_URL}/${type}/movie`, {
-        params: {
-          api_key: key,
-          query: searchKey,
-        },
-      });
-      const dataResponse = data.results
 
-      if (dataResponse.length > 0) {
-        setMovies(dataResponse);
-        setSelectedMovie(dataResponse[0]);
-      } else {
-        alert("SOMETHING WENT WRONGM, TRY TO SEARCH SOMETHING ELSE");
-      }
-    } catch (err) {
-      console.log(err);
+    const {
+      data: { results },
+    } = await axios.get(`${API_URL}/${type}/movie`, {
+      params: {
+        api_key: environments.REACT_APP_MOVIE_API_KEY,
+        query: searchKey,
+      },
+    });
+
+    if (results.length > 0) {
+      setMovies(results);
+      setSelectedMovie(results[0]);
+    } else {
+      alert("SOMETHING WENT WRONGM, TRY TO SEARCH SOMETHING ELSE");
     }
   };
 
