@@ -100,7 +100,7 @@ const HomePage = () => {
           favouriteComponent={AddFavourites}
         />
       </div>
-      
+
       <div className='container-fluid movie-app'>
         <h1>Favorurites Movies</h1>
         <div className='row'>
@@ -111,8 +111,6 @@ const HomePage = () => {
           />
         </div>
       </div>
-
-
     </main>
   );
 };
