@@ -100,18 +100,19 @@ const HomePage = () => {
           favouriteComponent={AddFavourites}
         />
       </div>
-      {favoruritesMovies.length > 0 ? (
-        <div className='container-fluid movie-app'>
-          <h1>Favorurites Movies</h1>
-          <div className='row'>
-            <MovieList
-              movies={favoruritesMovies}
-              favouriteComponent={RemoveFavourites}
-              handelFavouritesClick={removeMovieFromFavourites}
-            />
-          </div>
+      
+      <div className='container-fluid movie-app'>
+        <h1>Favorurites Movies</h1>
+        <div className='row'>
+          <MovieList
+            movies={favoruritesMovies}
+            favouriteComponent={RemoveFavourites}
+            handelFavouritesClick={removeMovieFromFavourites}
+          />
         </div>
-      ) : null}
+      </div>
+
+
     </main>
   );
 };
