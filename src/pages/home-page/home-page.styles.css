@@ -1,0 +1,66 @@
+.main-container {
+  width: 100vw;
+  color: white;
+}
+
+.items-container {
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.backdrop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 1rem;
+  min-height: 500px;
+  background-position: top center;
+  background-size: cover;
+}
+.backdrop-title {
+  text-transform: uppercase;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+}
+.backdrop-p {
+  background: rgba(152, 47, 54, 0.365);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.backdrop-btn {
+  margin: 1rem;
+  font-weight: bold;
+  background: rgb(181, 46, 54);
+  cursor: pointer;
+  color: #ffffff;
+  border: 1px solid rgb(181, 46, 54);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.backdrop-btn:hover {
+  transform: translateY(-0.25em);
+}
+.search-btn {
+  margin: 1rem;
+  font-weight: bold;
+  background: rgb(181, 46, 54);
+  cursor: pointer;
+  color: #ffffff;
+  border: 1px solid rgb(181, 46, 54);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.search-btn:hover {
+  transform: translateY(-0.25em);
+}

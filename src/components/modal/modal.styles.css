@@ -1,0 +1,28 @@
+.backdrop-modal {
+  z-index: 200;
+  position: fixed;
+  background-color: #000000bb;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop-modal button {
+  padding: 1rem;
+  color: rgb(181, 46, 54);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+.backdrop-modal button:hover {
+  color: white;
+  transition: 0.25s;
+  transform: translateY(-0.1em);
+}

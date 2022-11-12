@@ -1,0 +1,21 @@
+.input-contianer {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+  }
+  .search {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .input-contianer input {
+    padding: 12px;
+    border-style: solid;
+    border-color: black;
+    width: 260px;
+    height: 26px;
+    border-radius: 15px;
+  }
