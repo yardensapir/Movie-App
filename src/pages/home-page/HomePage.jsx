@@ -55,18 +55,17 @@ const HomePage = () => {
   const getMovies = async (searchKey) => {
     const type = searchKey ? "search" : "discover";
     try {
-      const {
-        data: { results },
-      } = await axios.get(`${API_URL}/${type}/movie`, {
+      const {data} = await axios.get(`${API_URL}/${type}/movie`, {
         params: {
           api_key: environments.REACT_APP_MOVIE_API_KEY,
           query: searchKey,
         },
       });
+      const dataResponse = data.results
 
-      if (results.length > 0) {
-        setMovies(results);
-        setSelectedMovie(results[0]);
+      if (dataResponse.length > 0) {
+        setMovies(dataResponse);
+        setSelectedMovie(dataResponse[0]);
       } else {
         alert("SOMETHING WENT WRONGM, TRY TO SEARCH SOMETHING ELSE");
       }
