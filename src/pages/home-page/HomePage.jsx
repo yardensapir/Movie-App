@@ -54,21 +54,24 @@ const HomePage = () => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
   const getMovies = async (searchKey) => {
     const type = searchKey ? "search" : "discover";
+    try {
+      const {
+        data: { results },
+      } = await axios.get(`${API_URL}/${type}/movie`, {
+        params: {
+          api_key: environments.REACT_APP_MOVIE_API_KEY,
+          query: searchKey,
+        },
+      });
 
-    const {
-      data: { results },
-    } = await axios.get(`${API_URL}/${type}/movie`, {
-      params: {
-        api_key: environments.REACT_APP_MOVIE_API_KEY,
-        query: searchKey,
-      },
-    });
-
-    if (results.length > 0) {
-      setMovies(results);
-      setSelectedMovie(results[0]);
-    } else {
-      alert("SOMETHING WENT WRONGM, TRY TO SEARCH SOMETHING ELSE");
+      if (results.length > 0) {
+        setMovies(results);
+        setSelectedMovie(results[0]);
+      } else {
+        alert("SOMETHING WENT WRONGM, TRY TO SEARCH SOMETHING ELSE");
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -101,16 +104,18 @@ const HomePage = () => {
         />
       </div>
 
-      <div className='container-fluid movie-app'>
-        <h1>Favorurites Movies</h1>
-        <div className='row'>
-          <MovieList
-            movies={favoruritesMovies}
-            favouriteComponent={RemoveFavourites}
-            handelFavouritesClick={removeMovieFromFavourites}
-          />
+      {favoruritesMovies.length > 0 ? (
+        <div className='container-fluid movie-app'>
+          <h1>Favorurites Movies</h1>
+          <div className='row'>
+            <MovieList
+              movies={favoruritesMovies}
+              favouriteComponent={RemoveFavourites}
+              handelFavouritesClick={removeMovieFromFavourites}
+            />
+          </div>
         </div>
-      </div>
+      ) : null}
     </main>
   );
 };
