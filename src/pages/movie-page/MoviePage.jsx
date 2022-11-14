@@ -37,6 +37,7 @@ const MoviePage = () => {
 
   useEffect(() => {
     getMovies(movieID);
+    console.log(movie);
   }, []);
 
   return (

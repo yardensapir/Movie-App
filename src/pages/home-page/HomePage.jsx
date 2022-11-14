@@ -50,19 +50,15 @@ const HomePage = () => {
   };
 
   //FETCH MOVIES FROM API
-  const API_URL = "https://api.themoviedb.org/3";
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
   const getMovies = async (searchKey) => {
-    const type = searchKey ? "search" : "discover";
+    const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${environments.REACT_APP_MOVIE_API_KEY}`;
+    const API_URL_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${environments.REACT_APP_MOVIE_API_KEY}&query=${searchKey}`;
+    const type = searchKey ? API_URL_SEARCH : API_URL;
 
     const {
       data: { results },
-    } = await axios.get(`${API_URL}/${type}/movie`, {
-      params: {
-        api_key: environments.REACT_APP_MOVIE_API_KEY,
-        query: searchKey,
-      },
-    });
+    } = await axios.get(type);
 
     if (results.length > 0) {
       setMovies(results);
