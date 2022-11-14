@@ -50,15 +50,19 @@ const HomePage = () => {
   };
 
   //FETCH MOVIES FROM API
+  const API_URL = "https://api.themoviedb.org/3";
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
   const getMovies = async (searchKey) => {
-    const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${environments.REACT_APP_MOVIE_API_KEY}`;
-    const API_URL_SEARCH = `https://api.themoviedb.org/3/search/movie?api_key=${environments.REACT_APP_MOVIE_API_KEY}&query=${searchKey}`;
-    const type = searchKey ? API_URL_SEARCH : API_URL;
+    const type = searchKey ? "search" : "discover";
 
     const {
       data: { results },
-    } = await axios.get(type);
+    } = await axios.get(`${API_URL}/${type}/movie`, {
+      params: {
+        api_key: environments.REACT_APP_MOVIE_API_KEY,
+        query: searchKey,
+      },
+    });
 
     if (results.length > 0) {
       setMovies(results);
@@ -96,19 +100,16 @@ const HomePage = () => {
           favouriteComponent={AddFavourites}
         />
       </div>
-
-      {favoruritesMovies.length > 0 ? (
-        <div className='container-fluid movie-app'>
-          <h1>Favorurites Movies</h1>
-          <div className='row'>
-            <MovieList
-              movies={favoruritesMovies}
-              favouriteComponent={RemoveFavourites}
-              handelFavouritesClick={removeMovieFromFavourites}
-            />
-          </div>
+      <div className='container-fluid movie-app'>
+        <h1>Favorurites Movies</h1>
+        <div className='row'>
+          <MovieList
+            movies={favoruritesMovies}
+            favouriteComponent={RemoveFavourites}
+            handelFavouritesClick={removeMovieFromFavourites}
+          />
         </div>
-      ) : null}
+      </div>
     </main>
   );
 };
