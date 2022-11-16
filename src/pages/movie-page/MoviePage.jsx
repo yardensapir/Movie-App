@@ -42,11 +42,14 @@ const MoviePage = () => {
 
   return (
     <div className='main-movie-container'>
-      <div className='backdrop'>
-        {console.log(movie.backdrop_path)}
+      <div
+        className='backdrop'
+        style={{
+          backgroundImage: `url(${IMAGE_PATH}${movie.backdrop_path})`,
+        }}
+      >
         <h1 className='backdrop-title'>{movie.title}</h1>
         <p className='backdrop-p'>{movie.overview}</p>
-        {console.log(movie)}
       </div>
       <div className='movie-container'>
         <img src={`${IMAGE_PATH}${movie.poster_path}`} alt='' />

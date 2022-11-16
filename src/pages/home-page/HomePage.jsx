@@ -83,7 +83,9 @@ const HomePage = () => {
       <Navbar handleSubmit={handleSubmit} searchMovie={searchMovie} />
       <div
         className='backdrop'
-       
+        style={{
+          backgroundImage: `url(${IMAGE_PATH}${selectedMovie.backdrop_path})`,
+        }}
       >
         <h1 className='backdrop-title'>{selectedMovie.title}</h1>
         <p className='backdrop-p'>
@@ -92,7 +94,7 @@ const HomePage = () => {
       </div>
 
       <div className='items-container'>
-     
+        {console.log(movies)}
         <MovieList
           movies={movies}
           handelFavouritesClick={addMovieToFavorurites}
