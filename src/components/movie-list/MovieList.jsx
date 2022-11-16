@@ -3,7 +3,7 @@ import "./movie-list.styles.css";
 import { useNavigate } from "react-router-dom";
 const MovieList = (props) => {
   const FavouriteComponent = props.favouriteComponent;
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
+  const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
   const navigate = useNavigate();
   return (
     <>

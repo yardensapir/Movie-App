@@ -51,7 +51,7 @@ const HomePage = () => {
 
   //FETCH MOVIES FROM API
   const API_URL = "https://api.themoviedb.org/3";
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
+  const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
   const getMovies = async (searchKey) => {
     const type = searchKey ? "search" : "discover";
 
@@ -83,9 +83,7 @@ const HomePage = () => {
       <Navbar handleSubmit={handleSubmit} searchMovie={searchMovie} />
       <div
         className='backdrop'
-        style={{
-          backgroundImage: `url(${IMAGE_PATH}/${selectedMovie.backdrop_path})`,
-        }}
+       
       >
         <h1 className='backdrop-title'>{selectedMovie.title}</h1>
         <p className='backdrop-p'>
@@ -94,6 +92,7 @@ const HomePage = () => {
       </div>
 
       <div className='items-container'>
+     
         <MovieList
           movies={movies}
           handelFavouritesClick={addMovieToFavorurites}

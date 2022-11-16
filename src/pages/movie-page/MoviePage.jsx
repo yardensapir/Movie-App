@@ -14,7 +14,7 @@ const MoviePage = () => {
   const movieID = params.movieID;
   const navigate = useNavigate();
   const API_URL = "https://api.themoviedb.org/3/movie";
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
+  const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
 
   //Fetch Movie
 
@@ -26,6 +26,7 @@ const MoviePage = () => {
         append_to_response: "videos",
       },
     });
+
     const trailerKey = await data.videos.results.find((element) =>
       element.name.includes("Trailer")
     );
@@ -37,21 +38,16 @@ const MoviePage = () => {
 
   useEffect(() => {
     getMovies(movieID);
-    console.log(movie);
   }, []);
 
   return (
     <div className='main-movie-container'>
-      <div
-        className='backdrop'
-        style={{
-          backgroundImage: `url(${IMAGE_PATH}/${movie.backdrop_path})`,
-        }}
-      >
+      <div className='backdrop'>
+        {console.log(movie.backdrop_path)}
         <h1 className='backdrop-title'>{movie.title}</h1>
         <p className='backdrop-p'>{movie.overview}</p>
+        {console.log(movie)}
       </div>
-
       <div className='movie-container'>
         <img src={`${IMAGE_PATH}${movie.poster_path}`} alt='' />
         <h1>{movie.tagline}</h1>
