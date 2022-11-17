@@ -74,6 +74,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getMovies();
+  
   }, []);
 
   return (
@@ -97,18 +98,23 @@ const HomePage = () => {
           handelFavouritesClick={addMovieToFavorurites}
           favouriteComponent={AddFavourites}
         />
+
+
+        
       </div>
 
-      <div className='container-fluid movie-app'>
-        <h1>Favorurites Movies</h1>
-        <div className='row'>
-          <MovieList
-            movies={favoruritesMovies}
-            favouriteComponent={RemoveFavourites}
-            handelFavouritesClick={removeMovieFromFavourites}
-          />
+      {favoruritesMovies.length > 0 ? (
+        <div className='container-fluid movie-app'>
+          <h1>Favorurites Movies</h1>
+          <div className='row'>
+            <MovieList
+              movies={favoruritesMovies}
+              favouriteComponent={RemoveFavourites}
+              handelFavouritesClick={removeMovieFromFavourites}
+            />
+          </div>
         </div>
-      </div>
+      ) : null}
     </main>
   );
 };
