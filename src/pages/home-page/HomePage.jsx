@@ -94,7 +94,6 @@ const HomePage = () => {
       </div>
 
       <div className='items-container'>
-        {console.log(movies)}
         <MovieList
           movies={movies}
           handelFavouritesClick={addMovieToFavorurites}
