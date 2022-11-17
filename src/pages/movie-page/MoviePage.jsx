@@ -30,9 +30,7 @@ const MoviePage = () => {
     const trailerKey = await data.videos.results.find((element) =>
       element.name.includes("Trailer")
     );
-    trailerKey
-      ? setTrailerKey(trailerKey.key)
-      : setTrailerKey(data.videos.results[0].key);
+   
     setMovie(data);
   };
 
@@ -45,7 +43,7 @@ const MoviePage = () => {
       <div
         className='backdrop'
         style={{
-          backgroundImage: `url(${IMAGE_PATH}${movie.backdrop_path})`,
+     
         }}
       >
         <h1 className='backdrop-title'>{movie.title}</h1>

@@ -9,6 +9,7 @@ const Modal = ({ closeMenu,trailerKey }) => {
         X
     
       </button>
+      {console.log(trailerKey)}
       <ReactPlayer url={`https://www.youtube.com/watch?v=${trailerKey}`} />
     </div>
   );

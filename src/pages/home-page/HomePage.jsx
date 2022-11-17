@@ -84,7 +84,7 @@ const HomePage = () => {
       <div
         className='backdrop'
         style={{
-          backgroundImage: `url(${IMAGE_PATH}${selectedMovie.backdrop_path})`,
+      
         }}
       >
         <h1 className='backdrop-title'>{selectedMovie.title}</h1>
