@@ -1,5 +1,5 @@
 import React from "react";
-import ReactPlayer from "react-player/lazy";
+import YouTube from "react-youtube";
 import "./modal.styles.css";
 const Modal = ({ closeMenu, trailerKey }) => {
   return (
@@ -8,7 +8,7 @@ const Modal = ({ closeMenu, trailerKey }) => {
         X
       </button>
       {trailerKey.length > 0 ? (
-        <ReactPlayer url={`https://www.youtube.com/watch?v=${trailerKey}`} />
+        <YouTube videoId={trailerKey} />
       ) : (
         <h1>Can Not Find The Trailer..</h1>
       )}
