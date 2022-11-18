@@ -73,10 +73,12 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    getMovies();
+  getMovies();
     const movieFavourites = JSON.parse(localStorage.getItem("react-movie-app"));
-    saveToLocalStorage(movieFavourites)
-    setFavoruritesMovies(movieFavourites);
+    saveToLocalStorage(movieFavourites);
+    if (movieFavourites != null) {
+      setFavoruritesMovies(movieFavourites);
+    }
   }, []);
 
   return (
